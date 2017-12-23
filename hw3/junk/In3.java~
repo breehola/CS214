@@ -1,0 +1,19 @@
+public class In3{
+
+    public static Scanner getInput(String txtName){
+	Scanner given = null;
+	File newFile = new File(txtName);
+
+	try{
+	    given = new Scanner(newFile);
+	}catch (FileNotFoundException e){
+	    System.out.println("File Not Found");
+	}
+	return given;
+    }
+
+    public static void main(String [] args){
+	Scanner input = getInput("in3.txt");
+	int q = Integer.parseInt(getInput.nextLine());
+    }
+}

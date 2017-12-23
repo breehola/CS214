@@ -1,0 +1,21 @@
+import java.unti.*;
+import java.io.*;
+
+public class Test{
+
+        public static Scanner getInput(String txt){
+	Scanner given = null;
+	File newFile = new File(txt);
+
+	try{
+	    given = new Scanner(newFile);
+	}catch(FileNotFoundException e){
+	    System.out.println("File not found");
+	}
+	return given;
+    }
+
+    
+
+    
+}

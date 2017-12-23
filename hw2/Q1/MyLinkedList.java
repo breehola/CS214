@@ -1,0 +1,77 @@
+public class MyLinkedList<T>{
+
+    private Node<T> head;
+    private Node<T> end;
+    private int count;
+
+    public MyLinkedList(){
+	head = new Node();
+	end = head;
+    }
+
+    public Node<T> getHead(){
+	return head;
+    }
+    
+    public void addToStart(T item){
+	head = new Node(item, head);
+	count++;
+    }
+
+    public void addToEnd(T item){
+	Node<T> newNode = new Node<T>(item, null);
+	end.setLink(newNode);
+	end = end.getLink();
+	count++;
+    }
+
+    public T deleteHeadNode(){
+	if(head != null){
+	    T temp = head.getData();
+	    head = head.getLink();
+	    return temp;
+	}
+	count--;
+	return null;
+        
+    }
+
+    public boolean deleteNext(Node<T> given){
+	if(given.getLink() != null){
+	    given.setLink(given.getLink().getLink());
+	    return true;
+	}
+	count--;
+	return false;
+    }
+    
+    public int size(){
+
+	return count;
+    }
+
+    public boolean contains(T item){
+	return (find(item) != null);
+    }
+
+    public Node<T> find(T target){
+	Node<T> copy = head;
+
+	while(copy != null){
+	    if(copy.getData().equals(target))
+		return copy;
+	    copy = copy.getLink();
+	}
+	return null;
+    }
+
+    public void outputList(){
+	Node<T> copy = head;
+	while(copy.getLink() != null){
+	    System.out.print(copy.getData() + " ");
+	    copy = copy.getLink();
+	}
+	System.out.println();
+    }
+}
+
